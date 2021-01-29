@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHubApp", "GitHubApp\GitHubApp.csproj", "{C03006A2-6D99-4E79-9B1A-F5EFBCDD612A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GitHubApp", "GitHubApp\GitHubApp.csproj", "{C03006A2-6D99-4E79-9B1A-F5EFBCDD612A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GithubProject.API", "GithubProject.API\GithubProject.API.csproj", "{F5951D88-EF2F-4C9E-84AA-E5B62167BF66}"
 EndProject
