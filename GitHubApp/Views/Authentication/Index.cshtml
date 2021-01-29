@@ -1,0 +1,16 @@
+﻿@using Microsoft.AspNetCore.Authentication
+@model AuthenticationScheme[]
+
+<div class="jumbotron">
+    <h1>Autenticação pela Authentication Controller</h1>
+
+    @foreach (var scheme in Model.OrderBy(p => p.DisplayName))
+    {
+        <form action="/login" method="post">
+            <input type="hidden" name="Provider" value="@scheme.Name" />
+            <input type="hidden" name="ReturnUrl" value="@ViewBag.ReturnUrl" />
+
+            <button class="btn btn-lg btn-success m-1" type="submit">Conectar no @scheme.DisplayName</button>
+        </form>
+    }
+</div>

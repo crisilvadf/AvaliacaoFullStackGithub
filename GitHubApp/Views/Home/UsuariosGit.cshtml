@@ -1,0 +1,100 @@
+﻿
+@if (Model != null)
+{
+    @using X.PagedList.Mvc.Core;
+    @model X.PagedList.IPagedList<GitHubApp.Models.UsuariosGithub>
+
+    <h1>Usuarios Git</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Login
+                </th>
+                <th>
+                    Avatar
+                </th>
+                <th>
+                    URL Repositório
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.login)
+                    </td>
+                    <td>
+                        <img src="@Html.DisplayFor(modelItem => item.avatar_url)" class="img-responsive" alt="" style="width:25px; height:25px;" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.repos_url)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Repositorios", "UsuariosGit", "Home", new { login = item.login }, new { @class = "btn btn-success" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @Html.PagedListPager(Model, pagina => Url.Action("UsuariosGit", new { pagina }))
+}
+
+@if (@ViewBag.Data != null)
+{
+    <div class="row row-inline">
+        <div class="col-md-9">
+            <h4>Repositórios <strong>@ViewBag.Usuario</strong> </h4>
+        </div>
+        <div class="col-md-3" style="text-align:right">
+            @Html.ActionLink("Voltar", "UsuariosGit", "Home", new { }, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+
+    <table class="table" style="margin-top:25px;">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Nome do Repositório
+                </th>
+                <th>
+                    URL do Reposítorio
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.Data)
+            {
+                <tr>
+                    <td>
+                        @Html.Raw(item.id)
+                    </td>
+                    <td>
+                        @Html.Raw(item.name)
+                    </td>
+                    <td>
+                        @Html.Raw(item.html_url)
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
